@@ -1,8 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Mongo } from 'meteor/mongo';
-import { Template } from 'meteor/templating';
-
-export const Tasks = new Mongo.Collection('tasks');
+import '../imports/mangos.js'
 
 Meteor.startup(() => {
   // code to run on server at startup

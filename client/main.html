@@ -34,15 +34,6 @@
 
     <div class="row">
 
-      <!-- <div class="col-md-3">
-        <p class="lead">Shop Name</p>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-        </div>
-      </div> -->
-
       <div class="col-md-9">
 
         <div class="row carousel-holder">
@@ -76,109 +67,22 @@
 
         </div>
 
-		<h1>
-		  Make a VR Headset Challenge
-		</h1>
-		<h2>
-		  Time Remaining:<br>3 Days 5 Hours 27 Minutes and 31 Seconds
-		</h2>
-		<h3>
-		  Submitted entries to this competition:
-		</h3>
-
-		<br>
+      <h1>Make a VR Headset Challenge</h1>
+      <h2>Time Remaining:<br>3 Days 5 Hours 27 Minutes and 31 Seconds</h2>
+      <h3>Submitted entries to this competition:</h3>
+      <br>
         <div class="row">
-
-<!--           <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-              <img src="vr_oculus.png" width = "320" height = "150" alt="">
-              <div class="caption">
-                <h4 class="pull-right">$0.99</h4>
-                <h4><a href="#">Oculus Rift</a>
-                </h4>
-                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-              </div>
-              <div class="ratings">
-                <p class="pull-right">15 backers</p>
-                <button>Back this project</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-              <img src="vr_fove.jpg" width = "320" height = "150" alt="">
-              <div class="caption">
-                <h4 class="pull-right">$1.00</h4>
-                <h4><a href="#">FOVE</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-              <div class="ratings">
-                <p class="pull-right">12 backers</p>
-                <button>Back this project</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-              <img src="vr_wearality.jpg" width = "320" height = "150" alt="">
-              <div class="caption">
-                <h4 class="pull-right">$69.69</h4>
-                <h4><a href="#">Wearality</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-              <div class="ratings">
-                <p class="pull-right">31 backers</p>
-                <button>Back this project</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-              <img src="vr_htc.jpg" width = "320" height = "150" alt="">
-              <div class="caption">
-                <h4 class="pull-right">$420.00</h4>
-                <h4><a href="#">HTC Vive</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-              <div class="ratings">
-                <p class="pull-right">6 backers</p>
-                <button>Back this project</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-              <img src="vr_microsoft_hololense.jpg" width = "320" height = "150" alt="">
-              <div class="caption">
-                <h4 class="pull-right">$9001.69</h4>
-                <h4><a href="#">HoloLense</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-              <div class="ratings">
-                <p class="pull-right">18 backers</p>
-                <button>Back this project</button>
-              </div>
-            </div>
-          </div> -->
 
           {{#each projects}}
             {{> project}}
           {{/each}}
 
           <div class="col-sm-4 col-lg-4 col-md-4">
-            <h4><a href="#">Want to join the competition?</a>
-            </h4>
+            <h4><a href="#">Want to join the competition?</a></h4>
             <p>Submit your entry for this competition here!</p>
             <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">Create Project</a>
           </div>
+
         </div>
       </div>
     </div>
@@ -191,11 +95,10 @@
       <img src="{{imageName}}" width = "320" height = "150" alt="">
       <div class="caption">
         <h4 class="pull-right">{{priceTag}}</h4>
-        <h4><a href="#">{{projectName}}</a>
-        </h4>
+        <h4><a href="#">{{projectName}}</a></h4>
         <p>{{description}}</p>
       </div>
-      <div class="ratings">
+      <div class="backers">
         <p class="pull-right">{{numBackers}} backers</p>
         <button class="back-button">Back this project</button>
         <button class="unback-button">UnBack this project</button>
