@@ -36,7 +36,7 @@ if (Meteor.isClient) {
 
   Template.main.helpers({
     projects() {
-      return ProjectDB.find({});
+      return ProjectDB.find({}, { sort: { createdAt: -1 } });	// reverse search
     },
   });
 }
