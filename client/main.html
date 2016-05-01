@@ -2,7 +2,6 @@
   <title>Winner Takes All Kickstarter</title>
 </head>
 
-
 <template name="main">
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -90,7 +89,7 @@
 		<br>
         <div class="row">
 
-          <div class="col-sm-4 col-lg-4 col-md-4">
+<!--           <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
               <img src="vr_oculus.png" width = "320" height = "150" alt="">
               <div class="caption">
@@ -168,7 +167,11 @@
                 <button>Back this project</button>
               </div>
             </div>
-          </div>
+          </div> -->
+
+          {{#each projects}}
+            {{> project}}
+          {{/each}}
 
           <div class="col-sm-4 col-lg-4 col-md-4">
             <h4><a href="#">Want to join the competition?</a>
@@ -186,18 +189,18 @@
   </div>
 </template>
 
-<template name="projects">
+<template name="project">
   <div class="col-sm-4 col-lg-4 col-md-4">
     <div class="thumbnail">
-      <img src="http://placehold.it/320x150" alt="">
+      <img src={{imageName}} width = "320" height = "150" alt="">
       <div class="caption">
-        <h4 class="pull-right">$9001.69</h4>
+        <h4 class="pull-right">{{priceTag}}</h4>
         <h4><a href="#">{{projectName}}</a>
         </h4>
         <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
       <div class="ratings">
-        <p class="pull-right">{{numBackers}}</p>
+        <p class="pull-right">{{numBackers}} backers</p>
         <button>Back this project</button>
       </div>
     </div>
