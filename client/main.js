@@ -1,9 +1,29 @@
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
+
 FlowRouter.route('/', {
   action: function (params) {
     BlazeLayout.render("main", {
       area: "main"
     });
   }
+});
+
+Template.project.onCreated(function helloOnCreated() {
+  // counter starts at 0
+  this.numBackers = new ReactiveVar(0);
+});
+
+Template.project.helpers({
+  numBackers() {
+    return Template.instance().numBackers.get();
+  },
+});
+Template.project.events({
+  'click button'(event, instance) {
+    // increment the counter when button is clicked
+    instance.numBackers.set(instance.numBackers.get() + 1);
+  },
 });
 
 if (Meteor.isClient) {
