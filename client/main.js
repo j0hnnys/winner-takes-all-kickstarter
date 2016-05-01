@@ -8,26 +8,32 @@ FlowRouter.route('/', {
     });
   }
 });
-
+if (Meteor.isClient) {
 Template.project.onCreated(function helloOnCreated() {
-  // counter starts at 0
+  // Initialize numBackers variable
   this.numBackers = new ReactiveVar(0);
 });
 
 Template.project.helpers({
-  numBackers() {
+	//Getter for number of backers
+	numBackers() {
     return Template.instance().numBackers.get();
   },
 });
+
 Template.project.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
+  'click .back-button'(event, instance) {
+    // Increment the number of backers when "Back this Project" button is clicked
     instance.numBackers.set(instance.numBackers.get() + 1);
+  },
+  'click .unback-button'(event, instance) {
+    // Increment the number of backers when "Back this Project" button is clicked
+    instance.numBackers.set(instance.numBackers.get() - 1);
   },
 });
 
-if (Meteor.isClient) {
   Template.main.helpers({
+	// Instantiate all the projects
     projects: [
       {
         projectName: 'Oculus Rift',
