@@ -1,8 +1,12 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { ProjectDB } from '../imports/mangos.js'
+import { Projects } from '../imports/projects.js';
 
 FlowRouter.route('/', {
+  subscriptions: function () {
+    this.register('projects', Meteor.subscribe('projects'));
+  },
   action: function (params) {
     BlazeLayout.render("main", {
       area: "main"
@@ -10,7 +14,21 @@ FlowRouter.route('/', {
   }
 });
 
+var localProjects
+Meteor.startup(function(){
+  localProjects = projects.find({});
+  console.log(localProjects);
+});
+
 if (Meteor.isClient) {
+  
+  Meteor.subscribe('projects');
+  
+  Template.body.onCreated(function bodyOnCreated() {
+    this.state = new ReactiveDict();
+    Meteor.subscribe('projects');
+  });
+
   Template.project.onCreated(function helloOnCreated() {
     // Initialize numBackers variable
     this.numBackers = new ReactiveVar(0);
@@ -35,9 +53,9 @@ if (Meteor.isClient) {
   });
 
   Template.main.helpers({
-    projects() {
-      return ProjectDB.find({}, { sort: { numBackers: -1 } });	// most backers first
-    },
+    'projects': function () {
+      return Projects.find({});
+    }
   });
 
 }

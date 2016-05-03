@@ -62,10 +62,12 @@
         <div class="row">
 
           {{#each projects}}
-            {{> project}}
+          <div class="col-xs-12 col-md-6">
+            {{> projectListing project=this}}
+          </div>
           {{/each}}
 
-          <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="col-sm-4 col-lg-4 col-md-4 pull-right">
             <h4><a href="#">Want to join the competition?</a></h4>
             <p>Submit your entry for this competition here!</p>
             <a class="create-project-button btn btn-primary" target="_blank" href="/createProject">Create Project</a>

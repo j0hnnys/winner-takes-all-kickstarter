@@ -23,6 +23,7 @@ if (Meteor.isClient) {
                 dateCreated: Date.now()
             }, function (err) {
                 console.log(err);
+                FlowRouter.go('/');
             });
         }
     });

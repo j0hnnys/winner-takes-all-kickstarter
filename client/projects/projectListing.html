@@ -1,4 +1,9 @@
 <template name="projectListing">
-	<h2>Kickstart project 1</h2>
-	
+	<div class="thumbnail">
+		<h3>{{project.title}}</h3>
+		<p>Description: {{project.description}}</p>
+		<p>Goal: {{project.goal}}
+			<button class="btn btn-primary pull-right">Support!</button>
+		</p>
+	</div>
 </template>
