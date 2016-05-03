@@ -39,6 +39,7 @@ if (Meteor.isClient) {
       return ProjectDB.find({}, { sort: { numBackers: -1 } });	// most backers first
     },
   });
+
 }
 
 // How to test DB:
