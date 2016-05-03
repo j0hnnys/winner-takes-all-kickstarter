@@ -24,11 +24,6 @@ if (Meteor.isClient) {
   
   Meteor.subscribe('projects');
   
-  Template.body.onCreated(function bodyOnCreated() {
-    this.state = new ReactiveDict();
-    Meteor.subscribe('projects');
-  });
-
   Template.project.onCreated(function helloOnCreated() {
     // Initialize numBackers variable
     this.numBackers = new ReactiveVar(0);
