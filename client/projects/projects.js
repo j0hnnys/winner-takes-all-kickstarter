@@ -27,4 +27,11 @@ if (Meteor.isClient) {
             });
         }
     });
+    
+    Template.projectListing.events({
+        'click .support-button': function (event, template) {
+            event.preventDefault();
+            template.$('.support-button').attr('class', 'btn-danger');
+        }
+    })
 }
