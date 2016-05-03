@@ -53,6 +53,17 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.main.events({
+    'click .create-project-button': function (event) {
+      event.preventDefault();
+      
+      Meteor.call("goCreateProject", {}, function (err) {
+        console.log(err);
+        FlowRouter.go('/createProject');
+      });
+    }
+  });
+
 }
 
 // How to test DB:
