@@ -1,9 +1,9 @@
 <template name="projectListing">
 	<div class="thumbnail">
 		<h3>Title: {{project.title}}</h3>
-		<p>Description: {{project.description}}</p>
-		<p>Goal: {{project.goal}}
-			<button class="support-button btn btn-primary pull-right">Support!</button>
-		</p>
+		<h4>Description: {{project.description}}</h4>
+		<h4>Goal: {{project.goal}}</h4>
+		<h5>Current: {{project.current}} 
+		<button class="like-button btn btn-secondary" name="supportButton" value={{project._id}}>Support!</button></h5>
 	</div>
 </template>

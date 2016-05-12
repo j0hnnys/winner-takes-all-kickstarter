@@ -20,18 +20,29 @@ if (Meteor.isClient) {
                 title: event.target.formTitle.value,
                 description: event.target.formDescription.value,
                 goal: parseFloat(event.target.formGoal.value),
+                current: 0,
                 dateCreated: Date.now()
             }, function (err) {
-                console.log(err);
+                if (err) {
+                    console.log('Error creating project');
+                }
                 FlowRouter.go('/');
             });
         }
     });
     
     Template.projectListing.events({
-        'click .support-button': function (event, template) {
+        'click .like-button': function (event) {
             event.preventDefault();
-            template.$('.support-button').attr('class', 'btn-danger');
+            
+            var projectId = event.target.value;
+            
+            Meteor.call("likeProject", projectId, function (err) {
+                if (err) {
+                    console.log('Error supporting project');
+                    console.log(err);
+                }
+            });
         }
-    })
+    });
 }

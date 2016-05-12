@@ -17,6 +17,11 @@ if (Meteor.isServer) {
                 goal: projectObj.goal
             });
             FlowRouter.go("/");
-        }
+        },
+        "likeProject": function (projectId) {
+            var project = Projects.findOne({_id: projectId});
+            project.current += 1;
+            Projects.update(project._id, project);
+        },
     });
 }

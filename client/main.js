@@ -14,12 +14,6 @@ FlowRouter.route('/', {
   }
 });
 
-var localProjects
-Meteor.startup(function(){
-  localProjects = projects.find({});
-  console.log(localProjects);
-});
-
 if (Meteor.isClient) {
   
   Meteor.subscribe('projects');
@@ -58,50 +52,17 @@ if (Meteor.isClient) {
       event.preventDefault();
       
       Meteor.call("goCreateProject", {}, function (err) {
-        console.log(err);
+        if (err) {
+          console.log('Error going to create project page');
+          console.log(err);
+        }
         FlowRouter.go('/createProject');
       });
+    },
+    'click .winner-button': function (event) {
+      event.preventDefault();
+      FlowRouter.go('/winner');
     }
   });
 
 }
-
-// How to test DB:
-// > meteor mongo
-// > <copy all the stuff below into here>
-
-// db.ProjectDB.insert({
-//   projectName: 'Oculus Rift',
-//   imageName: 'vr_oculus.png',
-//   priceTag: '$0.99',
-//   numBackers: 15,
-//   description: 'This is a short description.',
-// });
-// db.ProjectDB.insert({
-//   projectName: 'FOVE',
-//   imageName: 'vr_fove.jpg',
-//   priceTag: '$1.00',
-//   numBackers: 12,
-//   description: 'This is a short description.',
-// });
-// db.ProjectDB.insert({
-//   projectName: 'Wearality',
-//   imageName: 'vr_wearality.jpg',
-//   priceTag: '$69.69',
-//   numBackers: 31,
-//   description: 'This is a short description.',
-// });
-// db.ProjectDB.insert({
-//   projectName: 'HTC Vive',
-//   imageName: 'vr_htc.jpg',
-//   priceTag: '$420.00',
-//   numBackers: 6,
-//   description: 'This is a short description.',
-// });
-// db.ProjectDB.insert({
-//   projectName: 'HoloLense',
-//   imageName: 'vr_microsoft_hololense.jpg',
-//   priceTag: '$9001.69',
-//   numBackers: 18,
-//   description: 'This is a short description.',
-// });
